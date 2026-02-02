@@ -19,6 +19,8 @@ This repo is a complete, Python-first demo that connects:
 
 It’s designed as a practical pattern you can reuse: keep backends as MCP tools, keep the “agent brain” in one service, and give users a UI that makes tool activity visible and trustworthy.
 
+<img width="3328" height="1280" alt="Gemini_Generated_Image_imoleimoleimolei" src="https://github.com/user-attachments/assets/273611a7-bedc-4bf2-89e4-0dfc1a4f2dc0" />
+
 ## What’s inside
 
 ### 1) Policy MCP server (Blob-only)
@@ -162,4 +164,6 @@ If you want to be stricter in production:
 - Plain HTML/CSS/JS UI
 
 ---
+
+
 
