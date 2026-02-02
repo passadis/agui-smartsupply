@@ -1,0 +1,58 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.egg-info/
+*.egg
+*.log
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+
+# --- FastAPI / Uvicorn ---
+# Uvicorn reload artifacts
+.reload*
+
+# --- Environment variables ---
+.env.local
+.env.dev
+.env.prod
+*.env
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+
+# --- Testing ---
+.pytest_cache/
+.coverage
+htmlcov/
+.cache/
+
+# --- Mypy / Ruff / Linting ---
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+
+# --- Build / Packaging ---
+build/
+dist/
+pip-wheel-metadata/
+
+# --- Docker ---
+docker-data/
+*.pid
+
+# --- Misc ---
+*.sqlite3
+*.db
