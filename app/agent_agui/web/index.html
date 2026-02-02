@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supply Chain Agent (AG-UI)</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo">
+            <img src="/static/logo.png" alt="Logo" class="logoImg" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+            <span class="logoText">SC</span>
+          </div>
+          <div>
+            <div class="title">Supply Chain Command Center</div>
+            <div class="subtitle">AG-UI streaming • Azure OpenAI • MCP tools</div>
+          </div>
+        </div>
+        <div class="status" id="status">Disconnected</div>
+      </header>
+
+      <main class="layout">
+        <section class="chat">
+          <div class="chatHeader">
+            <div class="chip">Thread</div>
+            <input id="threadId" class="thread" value="demo-thread" aria-label="Thread ID" />
+          </div>
+
+          <div id="messages" class="messages"></div>
+
+          <form id="composer" class="composer">
+            <textarea id="prompt" rows="2" placeholder="Ask about an order, e.g. 'Order 9921 is stuck; check policy and fix it.'"></textarea>
+            <button id="send" type="submit">Send</button>
+          </form>
+        </section>
+
+        <aside class="side">
+          <div class="panel">
+            <div class="panelTitle">Run</div>
+            <div class="kv">
+              <div class="k">runId</div>
+              <div class="v" id="runId">—</div>
+              <div class="k">state</div>
+              <div class="v" id="runState">—</div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panelTitle">Tools</div>
+            <div id="tools" class="tools"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panelTitle">Raw events</div>
+            <div id="events" class="events"></div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="/static/app.js"></script>
+  </body>
+</html>

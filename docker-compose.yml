@@ -1,0 +1,60 @@
+services:
+  policy-server:
+    build: 
+      context: ./app/policy-server
+    container_name: policy-server
+    ports:
+      - "8000:8000"
+    restart: always
+    env_file:
+      - .env
+
+  order-server:
+    build: 
+      context: ./app/order-server
+    container_name: order-server
+    ports:
+      - "8001:8001"
+    restart: always
+    env_file:
+      - .env
+
+  client-web:
+    build: 
+      context: ./src/client-web
+    container_name: client-web
+    ports:
+      - "8501:8501"
+    depends_on:
+      - policy-server
+      - order-server
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+      # Override localhost URLs with Docker service names
+      - POLICY_SERVER_URL=http://policy-server:8000/sse
+      - ORDER_SERVER_URL=http://order-server:8001/sse
+      # Ensure Azure credentials are passed through if not in .env file specifically for this container
+      - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT}
+      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY}
+
+  agent-agui:
+    build:
+      context: ./app/agent_agui
+    container_name: agent-agui
+    ports:
+      - "9000:9000"
+    depends_on:
+      - policy-server
+      - order-server
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+      - POLICY_SERVER_URL=http://policy-server:8000/sse
+      - ORDER_SERVER_URL=http://order-server:8001/sse
+      - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT}
+      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY}
+      - AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=${AZURE_OPENAI_CHAT_DEPLOYMENT_NAME}

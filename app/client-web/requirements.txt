@@ -1,0 +1,5 @@
+streamlit
+mcp
+openai
+python-dotenv
+azure-storage-blob>=12.0.0

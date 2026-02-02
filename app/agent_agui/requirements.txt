@@ -1,0 +1,6 @@
+fastapi>=0.110
+uvicorn[standard]>=0.27
+python-dotenv>=1.0
+azure-identity>=1.16
+agent-framework-core --pre
+mcp
