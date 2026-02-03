@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/passadis/agui-smartsupply/discussions
+    about: Please use discussions for questions and general topics
+  - name: 📚 Documentation
+    url: https://github.com/passadis/agui-smartsupply/blob/main/README.md
+    about: Check our documentation for answers to common questions
+  - name: 🔒 Security Vulnerability
+    url: https://github.com/passadis/agui-smartsupply/security/advisories/new
+    about: Please report security vulnerabilities privately
