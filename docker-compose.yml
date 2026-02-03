@@ -21,7 +21,7 @@ services:
 
   client-web:
     build: 
-      context: ./src/client-web
+      context: ./app/client-web
     container_name: client-web
     ports:
       - "8501:8501"
